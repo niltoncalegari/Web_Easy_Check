@@ -1,0 +1,226 @@
+﻿<div class="w3-sidebar w3-bar-block w3-light-grey" style="width:20%">
+    <div class="w3-container w3-dark-grey">
+        <h4>Menu</h4>
+    </div>
+    <img src="@ViewBag.IMG" alt="Snow" style="width:100%">
+    <p class="w3-bar-item w3-green">Contracheque</p>
+
+    <label for="Mes">Mês </label>
+    <select id='gMes'>
+        <option value=''>--Mês--</option>
+        <option value='01'>Janeiro</option>
+        <option value='02'>Fevereiro</option>
+        <option value='03'>Março</option>
+        <option value='04'>Abril</option>
+        <option value='05'>Maio</option>
+        <option value='06'>Junho</option>
+        <option value='07'>Julho</option>
+        <option value='08'>Agosto</option>
+        <option value='09'>Setembro</option>
+        <option value='10'>Outubro</option>
+        <option value='11'>Novembro</option>
+        <option value='12'>Dezembro</option>
+    </select>
+
+    <label for="Ano">Ano </label>
+    <select id='gAno'>
+        <option value=''>--Ano--</option>
+        <option value='2014'>2014</option>
+        <option value='2015'>2015</option>
+        <option value='2016'>2016</option>
+        <option value='2017'>2017</option>
+        <option value='2018'>2018</option>
+        <option value='2019'>2019</option>
+        <option value='2020'>2020</option>
+        <option value='2021'>2021</option>
+        <option value='2022'>2022</option>
+        <option value='2023'>2023</option>
+        <option value='2024'>2024</option>
+        <option value='2025'>2025</option>
+    </select>
+    <br />
+
+    <label for="Tipo">Tipo </label>
+    <select id='gTipo'>
+        <option value=''>--Tipo--</option>
+        <option value='Mensal'>Mensal</option>
+        <option value='Quinzenal'>Quinzenal</option>
+    </select>
+
+    <button onclick="GetFolha()" class="w3-bar-item w3-button w3-gray">Gerar </button>
+    <br />
+    <p class="w3-bar-item w3-green">Espelho Ponto</p>
+    <label for="from">De </label>
+    <input type="text" class="datepicker" data-date-format="dd-mm-yyyy" id="from" name="from" placeholder="Data Inicial">
+    <br />
+    <label for="to">Até</label>
+    <input type="text" class="datepicker" data-date-format="dd-mm-yyyy" id="to" name="to" placeholder="Data Final">
+    <button onclick="GetPonto()" class="w3-bar-item w3-button w3-gray">Gerar </button>
+</div>
+
+<div style="margin-left:20%">
+
+    <div id="containerMainPonto" class="w3-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Entrada</th>
+                    <th>Saida</th>
+                    <th>Entrada</th>
+                    <th>Saida</th>
+                    <th>Entrada</th>
+                    <th>Saida</th>
+                    <th>Entrada</th>
+                    <th>Saida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10/06/2018</td>
+                    <td>08:00</td>
+                    <td>12:00</td>
+                    <td>13:00</td>
+                    <td>18:00</td>
+                </tr>
+                <tr>
+                    <td>11/06/2018</td>
+                    <td>08:00</td>
+                    <td>12:00</td>
+                    <td>13:00</td>
+                    <td>18:00</td>
+                </tr>
+                <tr>
+                    <td>12/06/2018</td>
+                    <td>08:00</td>
+                    <td>12:00</td>
+                    <td>13:00</td>
+                    <td>18:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="containerMainFolha" class="w3-container w3-border" style="background:white">
+        <div class="row w3-border">
+            <div class="col-md-12 w3-border">
+                <div class="col-md-3">
+                    <img src="@ViewBag.IMG" alt="Snow" style="width:100%">
+                </div>
+                <div class="col-md-4">
+                    Empregador:
+                </div>
+                <div class="col-md-4">
+                    Usuario:
+                </div>
+                <div class="col-md-4">
+                    CNPJ:
+                </div>
+                <div class="col-md-4">
+                    Atividade:
+                </div>
+
+            </div>
+        </div>
+        <div class="row w3-border">
+            <div class="col-md-3 w3-border-0">Proventos</div>
+            <div class="col-md-1 w3-border-0">Ref</div>
+            <div class="col-md-2 w3-border-0">Valor</div>
+            <div class="col-md-3 w3-border-0">Desconto</div>
+            <div class="col-md-1 w3-border-0">Ref</div>
+            <div class="col-md-2 w3-border-0">Valor</div>
+        </div>
+        <div class="row w3-border">
+            <div class="col-md-3 w3-border-right w3-border-left">052 - Salario</div>
+            <div class="col-md-1 w3-border-right w3-border-left">220</div>
+            <div class="col-md-2 w3-border-right w3-border-left">R$1.000,00</div>
+            <div class="col-md-3 w3-border-right w3-border-left">033 - Salario</div>
+            <div class="col-md-1 w3-border-right w3-border-left">12</div>
+            <div class="col-md-2 w3-border-right w3-border-left">R$100,00</div>
+            <div class="col-md-3 w3-border-right w3-border-left">012 - Hora Extra</div>
+            <div class="col-md-1 w3-border-right w3-border-left">20</div>
+            <div class="col-md-2 w3-border-right w3-border-left">R$500,00</div>
+            <div class="col-md-3 w3-border-right w3-border-left"></div>
+            <div class="col-md-1 w3-border-right w3-border-left"></div>
+            <div class="col-md-2 w3-border-right w3-border-left"></div>
+
+            @*Espaços em Branco*@
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+            <div class="col-md-3 w3-border-right w3-border-left"> </div>
+            <div class="col-md-1 w3-border-right w3-border-left"> </div>
+            <div class="col-md-2 w3-border-right w3-border-left"> </div>
+        </div>
+        <div class="row w3-border">
+            <div class="col-md-4 w3-border"></div>
+            <div class="col-md-2 w3-border">R$1.500,00</div>
+            <div class="col-md-4 w3-border"></div>
+            <div class="col-md-2 w3-border">R$100,00</div>
+        </div>
+        <div class="row w3-border">
+            <div class="col-md-10 w3-border"></div>
+            <div class="col-md-2 w3-border">R$1.400,00</div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    var URL_POST_PONTO = '@Url.Action("PostPonto", "Home")';
+    var URL_POST_FOLHA = '@Url.Action("PostFolha", "Home")';
+    var IMG = '@ViewBag.IMG';
+
+
+</script>
+
+@Scripts.Render("~/bundles/request")
